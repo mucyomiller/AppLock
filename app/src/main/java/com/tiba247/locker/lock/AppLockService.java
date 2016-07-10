@@ -261,21 +261,6 @@ public class AppLockService extends Service {
         removeRelockTimer(open);
     }
 
-    private void showInterstitial() {
-//        mAdCount++;
-//        if (mAdCount % Constants.APPS_PER_INTERSTITIAL == 0)
-//            mHandler.post(new Runnable() {
-//                @Override
-//                public void run() {
-////                    mInterstitialHelper.load();
-//                    Intent i = new Intent(AppLockService.this, LaunchInterstitialActivity.class);
-//                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    startActivity(i);
-//                }
-//            });
-
-    }
-
     private void showLocker(String packageName) {
         Intent intent = LockService.getLockIntent(this, packageName);
         intent.setAction(LockService.ACTION_COMPARE);
@@ -291,7 +276,6 @@ public class AppLockService extends Service {
     }
 
     private void onLockedAppClose(String close, String open) {
-        showInterstitial();
 
         setRelockTimer(close);
 
